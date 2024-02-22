@@ -119,3 +119,18 @@ export const tokens = (mode) => ({
         },      
     }),
 });
+
+export const themesetting = (mode) =>{
+    const colors = tokens(mode);
+    return {
+        palette: {
+            mode : mode,
+            ...(mode === 'dark'
+            ?{
+                primary: {
+                    main: colors.primary[500],
+                }
+            })
+        }
+    }
+}
