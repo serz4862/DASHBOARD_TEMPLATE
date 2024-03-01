@@ -191,3 +191,21 @@ export const themesetting = (mode) =>{
 
     };
 };
+
+// context for color mode
+export const ColorModeContext = createContext({
+  toggleColorMode: ()=> {}
+});
+
+export const useMode = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [mode, setMode] = useState("dark");
+
+  // eslint-disable-next-line no-unused-vars
+  const colorMode = useMemo(
+    () =>({
+      toggleColorMode: () =>
+        setMode((prev)=> (prev === "light" ? "dark" : "light")),
+    }),
+  )
+}
